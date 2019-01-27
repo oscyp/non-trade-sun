@@ -109,11 +109,12 @@ function considerExcludedDates(dates) {
 function createEvents(hoursBeforeEventNotification) {
   for (let i = 0; i < nonTradeSundays.length; i++) {
 
-    let sundayDate = [nonTradeSundays[i].getFullYear(), nonTradeSundays[i].getMonth() + 1, nonTradeSundays[i].getDate()];
+    let sundayDateStart = [nonTradeSundays[i].getFullYear(), nonTradeSundays[i].getMonth() + 1, nonTradeSundays[i].getDate()];
+    let sundayDateEnd = [nonTradeSundays[i].getFullYear(), nonTradeSundays[i].getMonth() + 1, nonTradeSundays[i].getDate() + 1];
 
     const event = {
-      start: sundayDate,
-      end: sundayDate,
+      start: sundayDateStart,
+      end: sundayDateEnd,
       productId: 'Oscyp//https://github.com/oscyp',
       title: 'Niedziela niehandlowa',
       alarms: hoursBeforeEventNotification !== null
