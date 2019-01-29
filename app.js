@@ -1,5 +1,6 @@
 const { writeFileSync, existsSync, mkdirSync } = require('fs')
-const ics = require('ics')
+const ics = require('ics');
+const moment = require('moment');
 
 const year = 2019;
 /* Month in js are 0 based, so january is 0. */
@@ -58,7 +59,7 @@ function getNonTradeSundaysAtSpecificMonth(year, month){
 
   for (let day = 1; day <= daysCount; day++) {
     
-    date.setDate(day);
+      date.setDate(day);
 
     if (isSaturday(date)){
       monthSundays.push(new Date(date));
@@ -109,16 +110,17 @@ function considerExcludedDates(dates) {
 function createEvents(hoursBeforeEventNotification) {
   for (let i = 0; i < nonTradeSundays.length; i++) {
 
-    let sundayDateStart = [nonTradeSundays[i].getFullYear(), nonTradeSundays[i].getMonth() + 1, nonTradeSundays[i].getDate()];
-    let sundayDateEnd = [nonTradeSundays[i].getFullYear(), nonTradeSundays[i].getMonth() + 1, nonTradeSundays[i].getDate() + 1];
+    const sundayDate = [nonTradeSundays[i].getFullYear(), nonTradeSundays[i].getMonth() + 1, nonTradeSundays[i].getDate()];
+    const timestamp = moment().utc().format('YYYYMMDDTHHmmSS') + 'Z';
 
     const event = {
-      start: sundayDateStart,
-      end: sundayDateEnd,
-      productId: 'Oscyp//https://github.com/oscyp',
+      start: sundayDate,
+      end: sundayDate,
+      productId: '-//Oscyp//https://github.com/oscyp//PL',
       title: 'Niedziela niehandlowa',
+      timestamp: timestamp,
       alarms: hoursBeforeEventNotification !== null
-              ? [{ action: 'display', trigger: { hours: hoursBeforeEventNotification, before: true } }]
+              ? [{ action: 'display', description: 'Niedziela niehandlowa', trigger: { hours: hoursBeforeEventNotification, before: true } }]
               : ''
     }
 
@@ -132,7 +134,7 @@ function writeEventsToFile(fileNotificationName){
       console.log(error)
       return
     }
-    writeFileSync(`${fileDir}\\non_trade${fileNotificationName}.ics`, value, { recursive: true })
+    writeFileSync(`${fileDir}\\non_trade${fileNotificationName}.ics`, value)
   })
 }
 
