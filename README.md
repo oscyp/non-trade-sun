@@ -6,14 +6,14 @@ They are all-day events.
 
 You can choose one of six files without or with notifications at 12:00:
 
-* [non_trade.ics](non_trade/non_trade.ics) - no notifications 
-* [non_trade_one_day.ics](non_trade/non_trade_one_day.ics) - one day before
-* [non_trade_two_days.ics](non_trade/non_trade_two_days.ics) - two days before
-* [non_trade_three_days.ics](non_trade/non_trade_three_days.ics) - three days before
-* [non_trade_four_days.ics](non_trade/non_trade_four_days.ics) - four days before
-* [non_trade_five_days.ics](non_trade/non_trade_five_days.ics) - five days before
+* [non_trade.ics](https://github.com/oscyp/non-trade-sun/releases/download/v0.1/non_trade.ics) - no notifications 
+* [non_trade_one_day.ics](https://github.com/oscyp/non-trade-sun/releases/download/v0.1/non_trade_one_day.ics) - one day before
+* [non_trade_two_days.ics](https://github.com/oscyp/non-trade-sun/releases/download/v0.1/non_trade_two_days.ics) - two days before
+* [non_trade_three_days.ics](https://github.com/oscyp/non-trade-sun/releases/download/v0.1/non_trade_three_days.ics) - three days before
+* [non_trade_four_days.ics](https://github.com/oscyp/non-trade-sun/releases/download/v0.1/non_trade_four_days.ics) - four days before
+* [non_trade_five_days.ics](https://github.com/oscyp/non-trade-sun/releases/download/v0.1/non_trade_five_days.ics) - five days before
 
-Just download and import to Your calendar from file or import via the link.
+Just pick one, download and import to Your calendar from file.
 
 #### Specification
 
